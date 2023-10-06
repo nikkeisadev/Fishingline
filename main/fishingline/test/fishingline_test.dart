@@ -1,4 +1,4 @@
-import 'package:main/main.dart';
+import 'package:fishingline/fishingline.dart';
 import 'package:test/test.dart';
 
 void main() {
