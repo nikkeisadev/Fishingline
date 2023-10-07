@@ -12,3 +12,6 @@ Mostly using VS Code for editing. MongoDB will be used later IG. **Using as SQL 
 > iOS support, and Android yet. It's a Mobile App Development project. 📱
 ## Plane Table 📃 
 ![alt text](https://i.ibb.co/9qpTq4D/fishingline-plan-table.png)
+## Flutter UI Blueprint 🔠
+This is just a blueprint, the original UI going to be similar, but not like this.
+![alt text](https://i.ibb.co/RczFxkx/main-page-blueprint.png)
