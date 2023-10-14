@@ -1,7 +1,17 @@
+import 'package:fishingline/components/buttonentry.dart';
+import 'package:fishingline/components/logintiles.dart';
 import 'package:flutter/material.dart';
+import '../components/textfield.dart';
 
 class Login extends StatelessWidget{
-  const Login({super.key});
+  Login({super.key});
+
+  //Text controlling section.
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  //Logging user in.
+  void signIn() {}
 
   @override
   Widget build(BuildContext context){
@@ -30,34 +40,106 @@ class Login extends StatelessWidget{
               ),  
 
               const SizedBox(height: 50),
+              
               //Username textfield.
+              UserTextField(
+                controller: usernameController,
+                hintText: 'Felhasználónév, vagy email cím:',
+                obscureText: false, //We don't need to hide the username.
+              ),
+
+              const SizedBox(height: 10),
+              
+              //Password textfield.
+              UserTextField(
+                controller: passwordController,
+                hintText: 'Jelszó:',
+                obscureText: true, //We have to hide the password.
+              ),
+
+              const SizedBox(height: 10),
+
+              //Forgot password.
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey.shade400),
-                    ),
-                    fillColor: Colors.grey.shade200,
-                    filled: true,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Elfelejtetted a jelszavadat?',
+                      style: TextStyle(color: Colors.grey[600]),
+                      ),
+                  ],
                 ),
               ),
-                  
-              //Password textfield.
-                  
-              //Forgot password.
-                  
+
+              const SizedBox(height: 25),
+
               //Continue with [options]...
-                  
+              ButtonEntry(
+                onTap: signIn,
+              ),
+
+              const SizedBox(height: 25),
+
               //Google + Apple sign in options.
-                  
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness:  0.5,
+                        color: Colors.grey[400]
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        'vagy használj',
+                        style: TextStyle(
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        thickness:  0.5,
+                        color: Colors.grey[400]
+                      ),
+                    ),
+                  ],
+              
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
               //Registration option.
-                  
-                  
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  //Google
+                  LoginTiles(
+                    imagePath: 'lib/images/google.png',
+                  ),
+
+                  SizedBox(width: 25),
+                  //Apple
+                  LoginTiles(
+                    imagePath: 'lib/images/apple.png',
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 25),
+
+              //Forgot password.
+              Row(children: [
+                Text('Nincsen fiókod?'),
+                const SizedBox(width: 4),
+                Text('Regisztrálj most!'),
+              ],),
             ],
                   ),
           ),
