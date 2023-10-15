@@ -135,10 +135,18 @@ class Login extends StatelessWidget{
               const SizedBox(height: 25),
 
               //Forgot password.
-              Row(children: [
-                Text('Nincsen fiókod?'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                Text(
+                  'Nincsen fiókod?',
+                  style: TextStyle(color: Colors.grey[700]),
+                  ),
                 const SizedBox(width: 4),
-                Text('Regisztrálj most!'),
+                const Text(
+                  'Regisztrálj most!',
+                  style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                  ),
               ],),
             ],
                   ),
