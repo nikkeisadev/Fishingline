@@ -9,18 +9,18 @@ class ButtonEntry extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.all(19),
         margin: const EdgeInsets.symmetric(horizontal: 25),
         decoration: BoxDecoration(
-          color: Colors.black, 
-          borderRadius: BorderRadius.circular(8)),
+          color: const Color.fromARGB(255, 255, 200, 18), 
+          borderRadius: BorderRadius.circular(16)),
         child: const Center(
           child: Text(
             "Bejelentkezés",
             style: TextStyle(
               color: Colors.white, 
               fontWeight: FontWeight.bold, 
-              fontSize: 16
+              fontSize: 20
             ),
           ),
         ),

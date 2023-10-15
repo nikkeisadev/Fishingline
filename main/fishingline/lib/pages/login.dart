@@ -16,30 +16,38 @@ class Login extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: SafeArea(
+      backgroundColor: const Color.fromRGBO(13, 50, 87, 1),
+      body: Container(
+         decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("lib/images/login_background_2.png"),
+                fit: BoxFit.cover,
+              )
+            ),
         child: 
           Center(
-            child: Column(children: [
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
               //Logo.
               const SizedBox(height: 50),
 
-              const Icon(
-                Icons.lock,
-                size: 100,
-              ),
+              Image.asset(
+                'lib/images/fishingline_logo.png',
+                width: 200,
+                ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 60),
               //Welcome back text.
-              Text(
-                'Üdvözöllek a Fishingline applikációjában!',
+              const Text(
+                'Üdvözöllek! Kérlek jelentkez be!',
                 style: TextStyle(
-                  color: Colors.grey[700],
-                  fontSize: 16
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 18,
                 ),
               ),  
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 10),
               
               //Username textfield.
               UserTextField(
@@ -60,14 +68,14 @@ class Login extends StatelessWidget{
               const SizedBox(height: 10),
 
               //Forgot password.
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
                       'Elfelejtetted a jelszavadat?',
-                      style: TextStyle(color: Colors.grey[600]),
+                      style: TextStyle(color:Color.fromARGB(255, 255, 255, 255)),
                       ),
                   ],
                 ),
@@ -83,29 +91,31 @@ class Login extends StatelessWidget{
               const SizedBox(height: 25),
 
               //Google + Apple sign in options.
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
                 child: Row(
                   children: [
                     Expanded(
                       child: Divider(
                         thickness:  0.5,
-                        color: Colors.grey[400]
+                        color: Color.fromARGB(255, 255, 255, 255)
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
                         'vagy használj',
                         style: TextStyle(
-                          color: Colors.grey[700],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 255, 200, 18),
                         ),
                       ),
                     ),
                     Expanded(
                       child: Divider(
                         thickness:  0.5,
-                        color: Colors.grey[400]
+                        color: Color.fromARGB(255, 255, 255, 255)
                       ),
                     ),
                   ],
@@ -116,9 +126,9 @@ class Login extends StatelessWidget{
               const SizedBox(height: 25),
 
               //Registration option.
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   //Google
                   LoginTiles(
                     imagePath: 'lib/images/google.png',
@@ -135,17 +145,17 @@ class Login extends StatelessWidget{
               const SizedBox(height: 25),
 
               //Forgot password.
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                 Text(
                   'Nincsen fiókod?',
-                  style: TextStyle(color: Colors.grey[700]),
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
                   ),
-                const SizedBox(width: 4),
-                const Text(
+                SizedBox(width: 4),
+                Text(
                   'Regisztrálj most!',
-                  style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: Color.fromARGB(255, 255, 200, 18), fontWeight: FontWeight.bold),
                   ),
               ],),
             ],

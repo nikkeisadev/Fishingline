@@ -15,9 +15,9 @@ class LoginTiles extends StatelessWidget {
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.white),
+          color: Color.fromARGB(255, 207, 207, 207)),
         borderRadius: BorderRadius.circular(16),
-        color: Colors.grey[100],
+        color: const Color.fromARGB(255, 255, 255, 255),
       ),
       child: Image.asset(imagePath,
       height: 40,
