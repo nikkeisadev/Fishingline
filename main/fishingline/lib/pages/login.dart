@@ -150,12 +150,19 @@ class Login extends StatelessWidget{
                 children: [
                 Text(
                   'Nincsen fiókod?',
-                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontSize: 16,
+                    ),
                   ),
                 SizedBox(width: 4),
                 Text(
                   'Regisztrálj most!',
-                  style: TextStyle(color: Color.fromARGB(255, 255, 200, 18), fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 255, 200, 18), 
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    ),
                   ),
               ],),
             ],
