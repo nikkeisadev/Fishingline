@@ -14,5 +14,5 @@ Mostly using VS Code for editing. MongoDB will be used later IG. **Using as SQL 
 ![alt text](https://i.ibb.co/9qpTq4D/fishingline-plan-table.png)
 ## Flutter UI Blueprint 🔠
 Blueprint removed, now that's the new look of the Login screen! 
-*Made in 7 days of working.*
+*Made in 7 days of work.*
 ![alt text](https://i.ibb.co/BTFwNcn/Login-Screen.png)
