@@ -3,9 +3,12 @@
 
 ## Donations, and Advertisements 📑
 Advertising different topics related to fishing -> Donations
-| Advertisement | Result |
+| Advertisement 📚| Result 📚|
 |      ---      |  ---   |
 | Selecting your favorite advertiser, and topics    |  Earning donations from ads   |
-Chatfunkció
-Információ megosztás. -> Friend req. 
-Login -> 2FA
+## Chats, and Posts: 💬
+Integraded chats, and posts.
+| Functions 📚|
+|    ---    |
+| Chat functions |
+| Sharing infos about the catches |
