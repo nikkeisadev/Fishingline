@@ -11,7 +11,7 @@ Integraded chats, and posts.
 | Functions 📚|
 |    ---    |
 | Chat functions |
-| Sharing infos about the catches |
+| Sharing posts from the fish, also includes time, place, fish, size, and weight |
 # Login, and security 🔐
 | Login | Security |
 | --- | --- |
