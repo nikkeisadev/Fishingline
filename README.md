@@ -15,4 +15,7 @@ Mostly using VS Code for editing. MongoDB will be used later IG. **Using as SQL 
 ## Flutter UI Blueprint 🔠
 Blueprint removed, now that's the new look of the Login screen! 
 *Made in 7 days of work.*
-![alt text](https://i.ibb.co/BTFwNcn/Login-Screen.png)
+![alt text]()
+<p align="center">
+  <img src="https://i.ibb.co/BTFwNcn/Login-Screen.png" title="Google Pixel 3 XL"/>
+</p>
