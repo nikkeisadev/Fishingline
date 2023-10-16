@@ -1,5 +1,5 @@
 # Ideas about the project 🐠
-> Donations, Advertiesemts, Login infos.
+> Donations, Advertiesemts, Login infos, Chats and Posts.
 
 ## Donations, and Advertisements 📑
 Advertising different topics related to fishing -> Donations
@@ -12,3 +12,7 @@ Integraded chats, and posts.
 |    ---    |
 | Chat functions |
 | Sharing infos about the catches |
+# Login, and security 🔐
+| Login | Security |
+| --- | --- |
+| Username or Email login |  2FA Security |
