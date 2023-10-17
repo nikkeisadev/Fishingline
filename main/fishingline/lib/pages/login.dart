@@ -1,7 +1,9 @@
 import 'package:fishingline/components/buttonentry.dart';
 import 'package:fishingline/components/logintiles.dart';
 import 'package:flutter/material.dart';
+import 'package:wave/config.dart';
 import '../components/textfield.dart';
+import 'package:wave/wave.dart';
 
 class Login extends StatelessWidget{
   Login({super.key});
@@ -10,6 +12,22 @@ class Login extends StatelessWidget{
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
+static const _backgroundColor = Color(0xFFF15BB5);
+
+static const _colors = [
+    Color(0xFFFEE440),
+    Color(0xFF00BBF9),
+];
+
+static const _durations = [
+    5000,
+    4000,
+];
+
+static const _heightPercentages = [
+    0.65,
+    0.66,
+];
   //Logging user in.
   void signIn() {}
 
