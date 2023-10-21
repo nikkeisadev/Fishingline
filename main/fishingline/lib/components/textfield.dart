@@ -4,12 +4,14 @@ class UserTextField extends StatelessWidget {
   final controller;
   final String hintText;
   final bool obscureText;
+  final iconName;
 
   const UserTextField({
     super.key,
     required this.controller,
     required this.hintText,
     required this.obscureText,  
+    required this.iconName,
   });
 
   @override
@@ -20,7 +22,12 @@ class UserTextField extends StatelessWidget {
         controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
-          enabledBorder: OutlineInputBorder(
+        prefixIcon: Icon(iconName),
+        prefixIconColor: MaterialStateColor.resolveWith((states) =>
+            states.contains(MaterialState.focused)
+                ? Color.fromARGB(255, 255, 174, 0)
+                : Colors.grey),
+        enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(color: Colors.white),
           ),

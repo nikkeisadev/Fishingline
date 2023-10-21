@@ -4,43 +4,44 @@ import 'package:fishingline/components/logintiles.dart';
 import 'package:flutter/material.dart';
 import '../components/textfield.dart';
 
-class Login extends StatefulWidget{
+class Register extends StatefulWidget{
     //Registration
   final Function()? onTap;
-  const Login({super.key, required this.onTap});
+  const Register({super.key, required this.onTap});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   //Text controlling section.
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
-  //Logging user in.
-  void signIn() async {
+  final confirmedPasswordController = TextEditingController();
+  //Logging user up.
+  void signUp() async {
+    //Loading circle.
+    //Try creating the account.
     try {
-      if (emailController.text == "") {
-        loginErrorDialog("Nem adtál meg email címet, ez szükséges a bejelentkezéshez!", "Nem adtál meg email címet!");
-      } else if (passwordController.text == "") {
-        loginErrorDialog("Nem adtál meg jelszót, ez szükséges a bejelentkezéshez!", "Nem adtál meg jelszót!");
-      } else {
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
+      //Check if the passwords match.
+      if (passwordController.text == confirmedPasswordController.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text, 
           password: passwordController.text
         );
-      }
-    } on FirebaseAuthException catch (e) {
-      //Wrong email from user.
-      if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
-        loginErrorDialog("Helytelen jelszót, vagy email címet adtál meg! Kérlek próbáld újra!", "Hibás jelszó, vagy email cím!");
-      } else if (e.code == 'too-many-requests') {
-        loginErrorDialog("Sajnos sokszor próbálkoztál helytelen adatokkal belépni! Kérlek próbáld újra később, vagy készíts új jelszót!", "Sok probálkozás!");
-      } else if (e.code == 'invalid-email') {
-        loginErrorDialog("Az email cím amit beírtál nem megfelelő! A Helyes email cím formátum, példa: ilovefishing@gmail.com.", "Nem megfelelő email cím!");
       } else {
-        loginErrorDialog("Error code in application while communicating with server: " +  e.code, "Awkward... ＞﹏＜");
+        print("The password don't match at all! ");
+        registerErrorDialog("A jelszavak amiket megadtál nem egyeznek meg! Próbáld meg újra.", "Nem egyezik meg a jelszavad!");
+        //Destroying the Loading animation.
+      }
+      //Destroying the Loading animation.
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'invalid-email') {
+        registerErrorDialog("Az email cím amit beírtál nem megfelelő! A Helyes email cím formátum, példa: ilovefishing@gmail.com.", "Nem megfelelő email cím!");
+      } else if (e.code == 'channel-error') {
+        registerErrorDialog("Valamit kihagytál, vagy hibásan adtál meg a regisztrációnál! Kérlek próbáld újra.", "Hibás adatok!");
+      } else {
+        registerErrorDialog("Error code in application while communicating with server: " +  e.code, "Awkward... ＞﹏＜");
       }
       //Login issue debugger:
       print("Login problem, code: " + e.code);
@@ -48,7 +49,7 @@ class _LoginState extends State<Login> {
   }
 
   //Wrong email notification.
-  void loginErrorDialog(String message, title) {
+  void registerErrorDialog(String message, title) {
     showDialog<void>(
     context: context, 
     builder: (context) {
@@ -87,7 +88,7 @@ class _LoginState extends State<Login> {
       body: Container(
          decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("lib/images/login_background.png"),
+                image: AssetImage("lib/images/login_background_2.png"),
                 fit: BoxFit.cover,
               )
             ),
@@ -97,7 +98,7 @@ class _LoginState extends State<Login> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
               //Logo.
-              const SizedBox(height: 40),
+              const SizedBox(height: 60),
 
               Image.asset(
                 'lib/images/fishingline_logo.png',
@@ -107,24 +108,24 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 60),
               //Welcome back text.
               const Text(
-                'Üdvözöllek! Kérlek jelentkez be!',
+                'Regisztrálj be email címeddel!',
                 style: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 20,
                 ),
-              ),  
-
+              ),
+              
               const Text(
-                'Használd email címedet, és jelszavadat!',
+                'Jelszavadat erősítsd meg!',
                 style: TextStyle(
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 14,
                 ),
               ),  
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
               
-              //Email textfield.
+              //Username textfield.
               UserTextField(
                 iconName: Icons.email,
                 controller: emailController,
@@ -143,27 +144,21 @@ class _LoginState extends State<Login> {
               ),
 
               const SizedBox(height: 10),
-
-              //Forgot password.
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'Elfelejtetted a jelszavadat?',
-                      style: TextStyle(color:Color.fromARGB(255, 255, 255, 255)),
-                      ),
-                  ],
-                ),
+              
+              //Repeat password textfield.
+              UserTextField(
+                iconName: Icons.password,
+                controller: confirmedPasswordController,
+                hintText: 'Ismételd meg jelszavadat:',
+                obscureText: true, //We have to hide the password.
               ),
 
               const SizedBox(height: 25),
 
               //Continue with [options]...
               ButtonEntry(
-                onTap: signIn,
-                text: "Bejelentkezés",
+                onTap: signUp,
+                text: "Regisztrálás",
               ),
 
               const SizedBox(height: 25),
@@ -227,7 +222,7 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                 Text(
-                  'Nincsen fiókod?',
+                  'Van már fiókod?',
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
                     fontSize: 16,
@@ -237,7 +232,7 @@ class _LoginState extends State<Login> {
                 GestureDetector(
                   onTap: widget.onTap,
                   child: Text(
-                    'Regisztrálj most!',
+                    'Jelentkez be!',
                     style: TextStyle(
                       color: Color.fromARGB(255, 255, 200, 18), 
                       fontWeight: FontWeight.bold,

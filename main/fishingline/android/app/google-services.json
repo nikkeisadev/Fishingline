@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "174925084469",
+    "project_id": "fishingline-91805",
+    "storage_bucket": "fishingline-91805.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:174925084469:android:d3c0beaae19ce38454fe7c",
+        "android_client_info": {
+          "package_name": "com.example.fishingline"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW5cF04NbnG3CQFS0LF97xlbKqFNuEUV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
