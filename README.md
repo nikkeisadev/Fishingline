@@ -11,7 +11,7 @@ UI:```Flutter``` 🔠
 Mostly using VS Code for editing. MongoDB will be used later IG. **Using as SQL Database** 🌐
 > iOS support, and Android yet. It's a Mobile App Development project. 📱
 ## Plane Table 📃 
-![alt text](https://i.ibb.co/9qpTq4D/fishingline-plan-table.png)
+![alt text](https://i.ibb.co/74GTq4z/plan-table.png)
 ## Flutter UI Blueprint 🔠
 Blueprint removed, now that's the new look of the Login screen! 
 *Made in 7 days of work.*
