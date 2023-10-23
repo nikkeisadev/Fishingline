@@ -199,17 +199,19 @@ class _RegisterState extends State<Register> {
               const SizedBox(height: 25),
 
               //Registration option.
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   //Google
                   LoginTiles(
+                    onTap: () {},
                     imagePath: 'lib/images/google.png',
                   ),
 
                   SizedBox(width: 25),
                   //Apple
                   LoginTiles(
+                    onTap: () {},
                     imagePath: 'lib/images/apple.png',
                   ),
                 ],
@@ -232,7 +234,7 @@ class _RegisterState extends State<Register> {
                 GestureDetector(
                   onTap: widget.onTap,
                   child: Text(
-                    'Jelentkez be!',
+                    'Jelentkezz be!',
                     style: TextStyle(
                       color: Color.fromARGB(255, 255, 200, 18), 
                       fontWeight: FontWeight.bold,

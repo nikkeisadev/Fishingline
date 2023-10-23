@@ -18,10 +18,30 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Text(
-          "Logged in as: " + user.uid,
-          style: TextStyle(color: Colors.white),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 0, 34, 68),
+        centerTitle: true,
+        titleSpacing: 10,
+        toolbarHeight: 75,
+        title: Image.asset(
+          'lib/images/fishingline_logo.png',
+          width: 120,  
+        ),
+      ),
+      body: 
+      Container(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text(
+                "Logged in with UID: " + user.uid,
+                  style: TextStyle(
+                  color: Colors.white, 
+                  fontWeight: FontWeight.bold
+                  ),
+              )
+            ],
+          )
         ),
         alignment: Alignment.center,
         padding: const EdgeInsets.all(30),
@@ -34,18 +54,22 @@ class Home extends StatelessWidget {
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.large(
         onPressed: () {},
         backgroundColor: const Color.fromARGB(255, 0, 34, 68),
         foregroundColor: const Color.fromARGB(255, 255, 187, 0),
-      child: const Icon(Icons.add),
+      child: Image.asset(
+          'lib/images/add_catch.png',
+          width: 70,
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
+        height: 100,
         shape: const CircularNotchedRectangle(),
         color: const Color.fromARGB(255, 0, 34, 68),
         child: IconTheme(
           data: const IconThemeData(
-            color: const Color.fromARGB(255, 255, 187, 0)),
+            color: Color.fromARGB(255, 255, 187, 0)),
           child: Padding(
             padding: const EdgeInsets.all(12.0), 
             child: Row(
@@ -55,33 +79,39 @@ class Home extends StatelessWidget {
                 IconButton(
                     icon: const Icon(
                       Icons.logout,
-                      size: 30,
+                      size: 35,
                   ),
                   onPressed: signUserOut,
+                  padding: const EdgeInsets.all(20),
                 ),
 
                 IconButton(
                     icon: const Icon(
                       Icons.home,
-                      size: 30,
+                      size: 40,
                   ),
                   onPressed: (){},
+                  padding: const EdgeInsets.all(5),
                 ),
+
+                const SizedBox(width: 60),
 
                 IconButton(
                     icon: const Icon(
                       Icons.settings,
-                      size: 30,
+                      size: 40,
                   ),
                   onPressed: (){},
+                  padding: const EdgeInsets.all(5),
                 ),
 
                 IconButton(
                     icon: const Icon(
                       Icons.person,
-                      size: 30,
+                      size: 35,
                   ),
                   onPressed: (){},
+                  padding: const EdgeInsets.all(20),
                 ),
               ],
             )

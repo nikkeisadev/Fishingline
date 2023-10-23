@@ -10,6 +10,7 @@ class ButtonEntry extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        
         padding: const EdgeInsets.all(17),
         margin: const EdgeInsets.symmetric(horizontal: 25),
         decoration: BoxDecoration(
@@ -19,6 +20,7 @@ class ButtonEntry extends StatelessWidget {
            ), 
            fit:BoxFit.cover
          ),
+         
           color: const Color.fromARGB(255, 255, 174, 0), 
           borderRadius: BorderRadius.circular(16)),
         child: Center(

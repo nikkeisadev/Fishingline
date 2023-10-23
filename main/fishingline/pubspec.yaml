@@ -38,6 +38,8 @@ dependencies:
   wave: ^0.2.2
   firebase_core: ^2.19.0
   firebase_auth: ^4.11.1
+  animated_splash_screen: ^1.3.0
+  google_sign_in: ^6.1.5
 
 dev_dependencies:
   flutter_test:
