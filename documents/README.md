@@ -22,3 +22,7 @@ Integraded chats, and posts.
 | Social Profiles |
 | --- |
 | Twitter, Linkedin |
+Money 15k-20k ~ web, etc. | 
+To
+Why
+Time
