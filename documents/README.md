@@ -19,6 +19,6 @@ Integraded chats, and posts.
 ## Website
 > .hu, domain
 ## Socials
-| Social Profiles |
+| Social | Profiles |
 | --- | --- |
 | Twitter | Linkedin |
