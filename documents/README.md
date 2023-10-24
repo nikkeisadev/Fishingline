@@ -18,3 +18,5 @@ Integraded chats, and posts.
 | Username or Email login |  2FA Security |
 ## Website
 > .hu, domain
+## Socials
+Twitter, Linkedin
