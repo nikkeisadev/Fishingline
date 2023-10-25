@@ -16,3 +16,13 @@ Integraded chats, and posts.
 | Login | Security |
 | --- | --- |
 | Username or Email login |  2FA Security |
+## Website
+> .hu, domain
+## Socials
+| Social Profiles |
+| --- |
+| Twitter, Linkedin |
+Money 15k-20k ~ web, etc. | 
+To
+Why
+Time
