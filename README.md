@@ -10,6 +10,14 @@ Language: ```Dart```⚙️
 UI:```Flutter``` 🔠
 Mostly using VS Code for editing. MongoDB will be used later IG. **Using as SQL Database** 🌐
 > iOS support, and Android yet. It's a Mobile App Development project. 📱
+## Time Table, Goals... etc. \^o^/ 🎇
+| Plans | Date | Description | Finished |
+| --- | --- | --- |
+| Google Auth | Okt. 29 | Google auth for application | ❌ |
+| Facebook Auth | Okt. 31 | Facebook auth for application | ❌ |
+| Apple Auth | Nov. 3 | Apple login, and auth for application | ❌ |
+| Webpage | Nov. 6 | Almost ready and finished webpage (Web-server ready) | ❌ |
+| Weather UI | Nov. 6 | Gathering Weather informations, and Locations | ❌ |
 ## Plane Table 📃 
 ![alt text](https://i.ibb.co/74GTq4z/plan-table.png)
 ## UI, and aligment table 🥽
