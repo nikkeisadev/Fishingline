@@ -12,7 +12,7 @@ Mostly using VS Code for editing. MongoDB will be used later IG. **Using as SQL 
 > iOS support, and Android yet. It's a Mobile App Development project. 📱
 ## Time Table, Goals... etc. \^o^/ 🎇
 | Plans | Date | Description | Finished |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Google Auth | Okt. 29 | Google auth for application | ❌ |
 | Facebook Auth | Okt. 31 | Facebook auth for application | ❌ |
 | Apple Auth | Nov. 3 | Apple login, and auth for application | ❌ |
