@@ -13,6 +13,8 @@ Mostly using VS Code for editing. MongoDB will be used later IG. **Using as SQL 
 ## Plane Table 📃 
 ![alt text](https://i.ibb.co/74GTq4z/plan-table.png)
 ## UI, and aligment table 🥽
+All of the selectable options are here from the navigation bars.✨
+The main page, and all of them will contain both navigation bar. 💻
 ![alt text](https://i.ibb.co/TwdkZ3M/uialigment.png)
 ## Flutter UI Blueprint 🔠
 Blueprint removed, now that's the new look of the Login screen! 
