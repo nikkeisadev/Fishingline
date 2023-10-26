@@ -19,3 +19,5 @@ Blueprint removed, now that's the new look of the Login screen!
 <p align="center">
   <img src="https://i.ibb.co/3YYM3ZV/image-removebg-preview-1.png" title="Google Pixel 3 XL" alt="Google Pixel 3 XL"/>
 </p>
+## UI, and aligment table 🥽
+![alt text](https://i.ibb.co/TwdkZ3M/uialigment.png)
