@@ -8,7 +8,9 @@ Bored cuz the minimal informaion about fishing statistics, and wanna save your c
 ## Development inforamtions, lang. etc.: 💻
 Language: ```Dart```⚙️
 UI:```Flutter``` 🔠
-Mostly using VS Code for editing. MongoDB will be used later IG. **Using as SQL Database** 🌐
+Editor: Mostly using ```VS Code``` for editing. 
+Database: ```MongoDB``` using as SQL Database 🌐 
+Auth and Login handling: ```Firebase```, google servers. 🔥
 > iOS support, and Android yet. It's a Mobile App Development project. 📱
 ## Time Table, Goals... etc. \^o^/ 🎇
 | Plans | Date | Description | Finished |
