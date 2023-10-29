@@ -1,11 +1,8 @@
 import 'package:fishingline/pages/auth.dart';
-import 'package:fishingline/pages/loginregister.dart';
 import 'package:flutter/material.dart';
-import 'pages/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:page_transition/page_transition.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

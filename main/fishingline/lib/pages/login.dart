@@ -4,7 +4,6 @@ import 'package:fishingline/components/logintiles.dart';
 import 'package:fishingline/resources/auth_service.dart';
 import 'package:flutter/material.dart';
 import '../components/textfield.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 class Login extends StatefulWidget{
     //Registration
@@ -42,10 +41,9 @@ class _LoginState extends State<Login> {
       } else if (e.code == 'invalid-email') {
         loginErrorDialog("Az email cím amit beírtál nem megfelelő! A Helyes email cím formátum, példa: ilovefishing@gmail.com.", "Nem megfelelő email cím!");
       } else {
-        loginErrorDialog("Error code in application while communicating with server: " +  e.code, "Awkward... ＞﹏＜");
+        loginErrorDialog("Error code in application while communicating with server...", "Awkward... ＞﹏＜");
       }
       //Login issue debugger:
-      print("Login problem, code: " + e.code);
     }
   }
 
@@ -230,17 +228,17 @@ class _LoginState extends State<Login> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                Text(
+                const Text(
                   'Nincsen fiókod?',
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
                     fontSize: 16,
                     ),
                   ),
-                SizedBox(width: 4),
+                const SizedBox(width: 4),
                 GestureDetector(
                   onTap: widget.onTap,
-                  child: Text(
+                  child: const Text(
                     'Regisztrálj most!',
                     style: TextStyle(
                       color: Color.fromARGB(255, 255, 200, 18), 

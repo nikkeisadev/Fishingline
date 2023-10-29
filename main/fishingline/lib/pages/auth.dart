@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:fishingline/pages/home.dart';
-import 'package:fishingline/pages/login.dart';
 import 'package:fishingline/pages/loginregister.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +18,7 @@ class Auth extends StatelessWidget {
           }
           //When the user don't logged in.
           else {
-            return LoginOrRegister();
+            return const LoginOrRegister();
           }
           
         }

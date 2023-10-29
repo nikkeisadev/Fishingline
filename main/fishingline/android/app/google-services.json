@@ -12,7 +12,20 @@
           "package_name": "com.example.fishingline"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "174925084469-j9mtg7o0vmgf1gnj457ndl74veo5csmq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fishingline",
+            "certificate_hash": "20b0ce2d1698eaf84d7779fc46aebed279fe7420"
+          }
+        },
+        {
+          "client_id": "174925084469-bot385vcn5t0er8ij2nofh0aijocp4as.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAW5cF04NbnG3CQFS0LF97xlbKqFNuEUV0"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "174925084469-bot385vcn5t0er8ij2nofh0aijocp4as.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "174925084469-0boeao5b0qeg7esva6evblfve2pdk0u1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fishingline"
+              }
+            }
+          ]
         }
       }
     }

@@ -1,7 +1,5 @@
-import 'dart:ffi';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -30,19 +28,6 @@ class Home extends StatelessWidget {
       ),
       body: 
       Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Text(
-                "Logged in with UID: " + user.uid,
-                  style: TextStyle(
-                  color: Colors.white, 
-                  fontWeight: FontWeight.bold
-                  ),
-              )
-            ],
-          )
-        ),
         alignment: Alignment.center,
         padding: const EdgeInsets.all(30),
         decoration: const BoxDecoration(

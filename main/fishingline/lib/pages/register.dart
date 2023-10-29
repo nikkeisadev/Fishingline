@@ -41,10 +41,9 @@ class _RegisterState extends State<Register> {
       } else if (e.code == 'channel-error') {
         registerErrorDialog("Valamit kihagytál, vagy hibásan adtál meg a regisztrációnál! Kérlek próbáld újra.", "Hibás adatok!");
       } else {
-        registerErrorDialog("Error code in application while communicating with server: " +  e.code, "Awkward... ＞﹏＜");
+        registerErrorDialog("Error code in application while communicating with server...", "Awkward... ＞﹏＜");
       }
       //Login issue debugger:
-      print("Login problem, code: " + e.code);
     }
   }
 
@@ -208,7 +207,7 @@ class _RegisterState extends State<Register> {
                     imagePath: 'lib/images/google.png',
                   ),
 
-                  SizedBox(width: 25),
+                  const SizedBox(width: 25),
                   //Apple
                   LoginTiles(
                     onTap: () {},
@@ -223,17 +222,17 @@ class _RegisterState extends State<Register> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                Text(
+                const Text(
                   'Van már fiókod?',
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 255, 255),
                     fontSize: 16,
                     ),
                   ),
-                SizedBox(width: 4),
+                const SizedBox(width: 4),
                 GestureDetector(
                   onTap: widget.onTap,
-                  child: Text(
+                  child: const Text(
                     'Jelentkezz be!',
                     style: TextStyle(
                       color: Color.fromARGB(255, 255, 200, 18), 
