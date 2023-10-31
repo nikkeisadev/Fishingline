@@ -67,6 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '174925084469',
     projectId: 'fishingline-91805',
     storageBucket: 'fishingline-91805.appspot.com',
+    androidClientId: '174925084469-gvq66lb82rackrvdi5ff6cir3e696eu5.apps.googleusercontent.com',
+    iosClientId: '174925084469-0boeao5b0qeg7esva6evblfve2pdk0u1.apps.googleusercontent.com',
     iosBundleId: 'com.example.fishingline',
   );
 
@@ -76,6 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '174925084469',
     projectId: 'fishingline-91805',
     storageBucket: 'fishingline-91805.appspot.com',
+    androidClientId: '174925084469-gvq66lb82rackrvdi5ff6cir3e696eu5.apps.googleusercontent.com',
+    iosClientId: '174925084469-p4i71nqkhpq5tcgo7628ssub145i6rvd.apps.googleusercontent.com',
     iosBundleId: 'com.example.fishingline.RunnerTests',
   );
 }

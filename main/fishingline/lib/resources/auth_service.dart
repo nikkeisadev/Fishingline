@@ -3,12 +3,12 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService{
   signInWithGoogle() async {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication googleAuthentication = await googleUser!.authentication;
+      final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication gAuth = await gUser!.authentication;
 
       final credential = GoogleAuthProvider.credential(
-        accessToken:  googleAuthentication.accessToken,
-        idToken:  googleAuthentication.idToken,
+        accessToken:  gAuth.accessToken,
+        idToken:  gAuth.idToken,
     );
 
     return await FirebaseAuth.instance.signInWithCredential(credential);

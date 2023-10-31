@@ -1,5 +1,6 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fishingline/pages/weather.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -72,10 +73,15 @@ class Home extends StatelessWidget {
 
                 IconButton(
                     icon: const Icon(
-                      Icons.home,
+                      Icons.cloud,
                       size: 40,
                   ),
-                  onPressed: (){},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => WeatherPage()),
+                    );
+                  },
                   padding: const EdgeInsets.all(5),
                 ),
 

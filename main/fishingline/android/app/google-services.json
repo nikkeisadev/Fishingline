@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "174925084469-j9mtg7o0vmgf1gnj457ndl74veo5csmq.apps.googleusercontent.com",
+          "client_id": "174925084469-7i5pnd3lumtl1rs9lhlucrroiscaq2tp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.fishingline",
-            "certificate_hash": "20b0ce2d1698eaf84d7779fc46aebed279fe7420"
+            "certificate_hash": "8fc564a7d87ecc05eb0b8805745881d88926399d"
           }
         },
         {
