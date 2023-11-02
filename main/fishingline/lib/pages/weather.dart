@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishingline/api_models/weather_model_api.dart';
 import 'package:fishingline/services/weather_service.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -13,26 +12,6 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  
-  //Google Maps API integration.
-  final Map<String, Marker> _markers = {};
-  Future<void> _onMapCreated(GoogleMapController controller) async {
-    final googleOffices = await locations.getGoogleOffices();
-    setState(() {
-      _markers.clear();
-      for (final office in googleOffices.offices) {
-        final marker = Marker(
-          markerId: MarkerId(office.name),
-          position: LatLng(office.lat, office.lng),
-          infoWindow: InfoWindow(
-            title: office.name,
-            snippet: office.address,
-          ),
-        );
-        _markers[office.name] = marker;
-      }
-    });
-  }
   final _weatherService = WeatherService('96a66d529a57a3ab69b4cd7cfb5cd421');
   final user = FirebaseAuth.instance.currentUser!;
   Weather? _weather;
@@ -51,8 +30,34 @@ class _WeatherPageState extends State<WeatherPage> {
     catch (e) {
       print(e);
     }
-
   }
+
+  final String translatedWeatherStatus = '';
+  String getWeatherAnimation(String? mainCondition) {
+      if (mainCondition == null) return 'lib/animations/Sunny.json';
+
+      switch (mainCondition.toLowerCase()) {
+        case 'clouds':
+        case 'mist':
+        case 'smoke':
+        case 'haze':
+        case 'dust':
+          return 'lib/animations/Cloudy.json';
+        case 'fog':
+          return 'lib/animations/Fog.json';
+        case 'rain':
+        case 'driyyle':
+        case 'shower rain':
+          return 'lib/animations/Rainy.json';
+        case 'thunderstorm':
+          return 'lib/animations/ThunderStorm.json';
+        case 'clear':
+          return 'lib/animations/Sunny.json';
+        default:
+          return 'lib/animations/Sunny.json';
+
+      }
+    }
   
   @override
   void initState() {
@@ -102,11 +107,27 @@ class _WeatherPageState extends State<WeatherPage> {
             
             children: [
               
-              Lottie.asset(
-                'lib/animations/SunnyAndRaining.json',
-                ),
+              Lottie.asset(getWeatherAnimation(_weather?.mainCondition)),
+
+              const SizedBox(height: 10),
               
-              const SizedBox(height: 40),
+              Text(
+                _weather?.mainCondition ?? "",
+                style: TextStyle(
+                  color: const Color.fromRGBO(255, 255, 255, 1),
+                  fontSize: 50,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              Divider(
+                  thickness: 2,
+                  color: const Color.fromARGB(255, 255, 187, 0),
+                  indent: 110,
+                  endIndent: 110,
+              ),
+
+              const SizedBox(height: 10),
 
               Text("Jelenlegi tartózkodási helye:",
               style: TextStyle(color: Colors.white, fontSize: 13),
@@ -158,7 +179,7 @@ class _WeatherPageState extends State<WeatherPage> {
       ),
 
       bottomNavigationBar: BottomAppBar(
-        height: 80,
+        height: 130,
         shape: const CircularNotchedRectangle(),
         color: const Color.fromARGB(255, 0, 34, 68),
         child: IconTheme(
@@ -169,22 +190,11 @@ class _WeatherPageState extends State<WeatherPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-
-                Text(
-                  'Tartózkódási helye jelenleg: \n${_weather?.cityName}.',
-                  style: TextStyle(fontSize: 20,
-                    color: Colors.white,
-                  ),
-                ),
-
-                IconButton(
-                    icon: const Icon(
-                      Icons.map,
-                      size: 40,
-
-                  ),
-                  onPressed: () {},
-                ),
+                Image.asset(
+                  'lib/images/mapboxintegration.png',
+                  color: Colors.white,
+                  width: 200,
+                  )
               ],
             )
           ),

@@ -37,6 +37,15 @@ class Home extends StatelessWidget {
                 fit: BoxFit.cover,
               )
         ),
+        child: Column(
+      children: [
+      
+     DrawerHeader(
+      child: Text('Üdvözöllek!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
+     )
+
+      ]
+    ),
       ),
       extendBody: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -89,7 +98,7 @@ class Home extends StatelessWidget {
 
                 IconButton(
                     icon: const Icon(
-                      Icons.settings,
+                      Icons.map_rounded,
                       size: 40,
                   ),
                   onPressed: (){},

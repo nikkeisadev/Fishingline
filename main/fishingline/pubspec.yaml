@@ -44,7 +44,8 @@ dependencies:
   geolocator: ^10.1.0
   geocoding: ^2.1.1
   lottie: ^2.7.0
-  google_maps_flutter: ^2.5.0
+  flutter_map: ^6.0.1
+  latlong2: ^0.9.0
 
 dev_dependencies:
   flutter_test:
