@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishingline/components/buttonentry.dart';
 import 'package:fishingline/components/logintiles.dart';
+import 'package:fishingline/pages/registrationcompleted.dart';
 import 'package:flutter/material.dart';
 import '../components/textfield.dart';
 
@@ -28,6 +29,10 @@ class _RegisterState extends State<Register> {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text, 
           password: passwordController.text
+        );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => RegistrationCompleted(onTap: () {},)),
         );
       } else {
         print("The password don't match at all! ");

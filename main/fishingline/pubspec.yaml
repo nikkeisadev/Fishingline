@@ -46,6 +46,7 @@ dependencies:
   lottie: ^2.7.0
   flutter_map: ^6.0.1
   latlong2: ^0.9.0
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +63,11 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "lib/icon/icon.png"
+
 flutter:
 
   # The following line ensures that the Material Icons font is

@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishingline/pages/weather.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
@@ -20,12 +21,28 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 0, 34, 68),
         centerTitle: true,
+        iconTheme: const IconThemeData(
+          size: 40,
+          color: Color.fromARGB(255, 255, 187, 0), //change your color here
+          ),
         titleSpacing: 10,
         toolbarHeight: 75,
         title: Image.asset(
           'lib/images/fishingline_logo.png',
-          width: 120,  
+          width: 120,
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              icon: const Icon(Icons.settings),
+              tooltip: 'Profile',
+              onPressed: () {
+                // handle the press
+              },
+            ),
+          ),
+        ],
       ),
       body: 
       Container(
@@ -39,10 +56,85 @@ class Home extends StatelessWidget {
         ),
         child: Column(
       children: [
-      
-     DrawerHeader(
-      child: Text('Üdvözöllek!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
-     )
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            color: const Color.fromARGB(255, 0, 34, 68),
+          ),
+          height: 120,
+          child: 
+            Row(
+            children: [
+              Lottie.asset(
+                "lib/animations/WeatherReport.json",
+                width: 100),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('Horgászni van kedved?', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
+                    Text('Nézd meg a mai időjárást!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20),),
+                    TextButton(
+                      onPressed: () {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => WeatherPage()),
+                       );
+                      },
+                      child: 
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            color: const Color.fromARGB(255, 255, 187, 0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text('Megtekintés',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              )
+                            ),
+                          ),
+                        ),
+                    )
+                  ]              
+                ),
+              )
+            ],
+          ),
+        ),
+
+        const SizedBox(height: 10),
+        
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            color: const Color.fromARGB(255, 0, 34, 68),
+          ),
+          height: 70,
+          child: 
+            Row(
+            children: [
+              Lottie.asset(
+                "lib/animations/Checkmark.json",
+                width: 100),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text('Nincsen probléma!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
+                    Text('Megfelelő az időjárás.', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20),),
+                    const SizedBox(height: 10),
+                  ]              
+                ),
+              )
+            ],
+          ),
+        ),
 
       ]
     ),

@@ -34,7 +34,7 @@ class _WeatherPageState extends State<WeatherPage> {
 
   final String translatedWeatherStatus = '';
   String getWeatherAnimation(String? mainCondition) {
-      if (mainCondition == null) return 'lib/animations/Sunny.json';
+      if (mainCondition == null) return 'lib/animations/LoadingAnimation.json';
 
       switch (mainCondition.toLowerCase()) {
         case 'clouds':
@@ -83,15 +83,17 @@ class _WeatherPageState extends State<WeatherPage> {
           width: 120,
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.person),
-            tooltip: 'Profile',
-            onPressed: () {
-              // handle the press
-            },
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+              icon: const Icon(Icons.person),
+              tooltip: 'Profile',
+              onPressed: () {
+                // handle the press
+              },
+            ),
           ),
         ],
-       
       ),
       body: Container(
               decoration: const BoxDecoration(
@@ -109,7 +111,7 @@ class _WeatherPageState extends State<WeatherPage> {
               
               Lottie.asset(getWeatherAnimation(_weather?.mainCondition)),
 
-              const SizedBox(height: 10),
+              const SizedBox(height: 30),
               
               Text(
                 _weather?.mainCondition ?? "",
@@ -143,7 +145,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   fontWeight: FontWeight.bold,
                   background: Paint()
                     ..color = const Color.fromARGB(255, 255, 187, 0)
-                    ..strokeWidth = 30
+                    ..strokeWidth = 35
                     ..strokeJoin = StrokeJoin.round
                     ..strokeCap = StrokeCap.round
                     ..style = PaintingStyle.stroke,
@@ -179,7 +181,7 @@ class _WeatherPageState extends State<WeatherPage> {
       ),
 
       bottomNavigationBar: BottomAppBar(
-        height: 130,
+        height: 100,
         shape: const CircularNotchedRectangle(),
         color: const Color.fromARGB(255, 0, 34, 68),
         child: IconTheme(
