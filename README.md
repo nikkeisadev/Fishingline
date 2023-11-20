@@ -32,4 +32,23 @@ Blueprint removed, now that's the new look of the Login screen!
 <p align="center">
   <img src="https://i.ibb.co/3YYM3ZV/image-removebg-preview-1.png" title="Google Pixel 3 XL" alt="Google Pixel 3 XL"/>
 </p>
+## Upcoming new ideas! 🐠
+*1.* Fish Species Database: A comprehensive database of different fish species, including their characteristics, habitats, and the best methods to catch them.
 
+*2.* Weather Forecast: Since weather conditions can significantly impact fishing, integrating a weather forecast feature would be beneficial. It could provide information on temperature, wind speed, precipitation, and other relevant weather details.
+
+*3.* Tide Information: For sea fishing, tide information is crucial. Your app could provide high tide and low tide timings.
+
+*4.* Fishing Regulations: Information about local fishing regulations, such as fishing seasons, size limits, and catch limits, can help users fish responsibly and legally.
+
+*5.* Location Services: Using GPS, the app could suggest nearby fishing spots or allow users to save their favorite locations.
+
+*6.* Catch Log: Allow users to record details about their catches, such as species, weight, length, location, and even photos.
+
+*7.* Social Features: Users could share their catches with others, view and like other people’s catches, and exchange tips and experiences.
+
+*8.* Equipment Suggestions: Based on the targeted fish species and current weather conditions, the app could suggest the most suitable fishing gear and bait.
+
+*9.* Tutorial and Tips: For beginners, having tutorials on different fishing techniques, knot-tying instructions, and other fishing tips would be helpful.
+
+*10.* Augmented Reality (AR) Feature: An AR feature could be used to identify fish species from a photo or to show the types of fish that might be found in a body of water.
