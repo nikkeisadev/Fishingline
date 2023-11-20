@@ -20,18 +20,6 @@ Auth and Login handling: ```Firebase```, google servers. 🔥
 | Apple Auth | Nov. 3 | Apple login, and auth for application | ❌ |
 | Webpage | Nov. 6 | Almost ready and finished webpage (Web-server ready) | ❌ |
 | Weather UI | Nov. 6 | Gathering Weather informations, and Locations | ❌ |
-## Plane Table 📃 
-![alt text](https://i.ibb.co/74GTq4z/plan-table.png)
-## UI, and aligment table 🥽
-All of the selectable options are here from the navigation bars.✨
-The main page, and all of them will contain both navigation bar. 💻
-![alt text](https://i.ibb.co/TwdkZ3M/uialigment.png)
-## Flutter UI Blueprint 🔠
-Blueprint removed, now that's the new look of the Login screen! 
-*Made in 14 days of work.*
-<p align="center">
-  <img src="https://i.ibb.co/3YYM3ZV/image-removebg-preview-1.png" title="Google Pixel 3 XL" alt="Google Pixel 3 XL"/>
-</p>
 ## Upcoming new ideas! 🐠
 *1.* Fish Species Database: A comprehensive database of different fish species, including their characteristics, habitats, and the best methods to catch them.
 
@@ -52,3 +40,15 @@ Blueprint removed, now that's the new look of the Login screen!
 *9.* Tutorial and Tips: For beginners, having tutorials on different fishing techniques, knot-tying instructions, and other fishing tips would be helpful.
 
 *10.* Augmented Reality (AR) Feature: An AR feature could be used to identify fish species from a photo or to show the types of fish that might be found in a body of water.
+## Plane Table 📃 
+![alt text](https://i.ibb.co/74GTq4z/plan-table.png)
+## UI, and aligment table 🥽
+All of the selectable options are here from the navigation bars.✨
+The main page, and all of them will contain both navigation bar. 💻
+![alt text](https://i.ibb.co/TwdkZ3M/uialigment.png)
+## Flutter UI Blueprint 🔠
+Blueprint removed, now that's the new look of the Login screen! 
+*Made in 14 days of work.*
+<p align="center">
+  <img src="https://i.ibb.co/3YYM3ZV/image-removebg-preview-1.png" title="Google Pixel 3 XL" alt="Google Pixel 3 XL"/>
+</p>
