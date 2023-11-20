@@ -61,45 +61,46 @@ class Home extends StatelessWidget {
             borderRadius: BorderRadius.circular(15.0),
             color: const Color.fromARGB(255, 0, 34, 68),
           ),
-          height: 120,
+          height: 80,
           child: 
             Row(
             children: [
               Lottie.asset(
                 "lib/animations/WeatherReport.json",
-                width: 100),
+                width: 70),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(14.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text('Horgászni van kedved?', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
                     Text('Nézd meg a mai időjárást!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20),),
-                    TextButton(
-                      onPressed: () {
-                          Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => WeatherPage()),
-                       );
-                      },
-                      child: 
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.0),
-                            color: const Color.fromARGB(255, 255, 187, 0),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text('Megtekintés',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              )
-                            ),
-                          ),
-                        ),
-                    )
+                    //TextButton(
+                      //onPressed: () {
+                          //Navigator.push(
+                          //context,
+                          //MaterialPageRoute(builder: (context) => WeatherPage()),
+                       //);
+                      //},
+                    //),
+                      //child: 
+                        //Container(
+                          //decoration: BoxDecoration(
+                            //borderRadius: BorderRadius.circular(15.0),
+                            //color: const Color.fromARGB(255, 255, 187, 0),
+                          //),
+                          //child: Padding(
+                            //padding: const EdgeInsets.all(8.0),
+                            //child: Text('Megtekintés',
+                            //style: TextStyle(
+                              //color: Colors.white,
+                              //fontWeight: FontWeight.bold,
+                              //fontSize: 20,
+                              //)
+                            //),
+                          //),
+                        //),
+                    //)
                   ]              
                 ),
               )
@@ -119,16 +120,16 @@ class Home extends StatelessWidget {
             Row(
             children: [
               Lottie.asset(
-                "lib/animations/Checkmark.json",
+                "lib/animations/LoadingAnimation.json",
                 width: 100),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text('Nincsen probléma!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
-                    Text('Megfelelő az időjárás.', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20),),
-                    const SizedBox(height: 10),
+                    Text('Problémák keresése...', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
+                    Text('Keressük a problémákat.', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20),),
+                    const SizedBox(height: 12),
                   ]              
                 ),
               )
