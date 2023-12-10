@@ -1,11 +1,30 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fishingline/components/bar_graph/bargraph.dart';
 import 'package:fishingline/pages/weather.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class Home extends StatelessWidget {
-  Home({super.key});
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
+
+  //Activity values for line chart.
+  List<double> monthlySummary = 
+  [
+    1, 
+    2, 
+    3, 
+    1, 
+    5, 
+    3, 
+    7, 
+    8, 
+    9, 
+    3, 
+    2, 
+    8
+  ];
 
   //User, and Current User values.
   final user = FirebaseAuth.instance.currentUser!;
@@ -58,7 +77,7 @@ class Home extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.circular(18.0),
             color: const Color.fromARGB(255, 0, 34, 68),
           ),
           height: 80,
@@ -66,15 +85,14 @@ class Home extends StatelessWidget {
             Row(
             children: [
               Lottie.asset(
-                "lib/animations/WeatherReport.json",
+                "lib/animations/ProfileMain.json",
                 width: 70),
               Padding(
                 padding: const EdgeInsets.all(14.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text('Horgászni van kedved?', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
-                    Text('Nézd meg a mai időjárást!', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20),),
+                    Text('Profilom, és adataim.', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
+                    Text('Nézd meg fogásaidat, és profilodat.', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20),),
                     //TextButton(
                       //onPressed: () {
                           //Navigator.push(
@@ -110,33 +128,31 @@ class Home extends StatelessWidget {
 
         const SizedBox(height: 10),
         
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15.0),
-            color: const Color.fromARGB(255, 0, 34, 68),
-          ),
-          height: 70,
-          child: 
-            Row(
-            children: [
-              Lottie.asset(
-                "lib/animations/LoadingAnimation.json",
-                width: 100),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text('Problémák keresése...', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),),
-                    Text('Keressük a problémákat.', style: TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 20),),
-                    const SizedBox(height: 12),
-                  ]              
+        Center(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: const Color.fromARGB(255, 0, 34, 68),
+            ),
+            height: 250,
+            child:
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                  height: 200,
+                  child: 
+                    Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: BarGraphActivity(monthlySummary: monthlySummary),
+                  ),
                 ),
-              )
-            ],
+                Text('Az egész éves aktivitásod a halak kifogásában. 🐠', style: GoogleFonts.notoColorEmoji(fontSize: 16, color: Colors.white,)),
+                Text('Tappolj a részletesebb infókért!', style: GoogleFonts.notoColorEmoji(fontSize: 16, color: Colors.white)) 
+              ],
+            )
           ),
         ),
-
       ]
     ),
       ),
@@ -200,7 +216,7 @@ class Home extends StatelessWidget {
 
                 IconButton(
                     icon: const Icon(
-                      Icons.person,
+                      Icons.water,
                       size: 35,
                   ),
                   onPressed: (){},

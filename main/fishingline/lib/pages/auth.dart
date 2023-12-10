@@ -14,7 +14,7 @@ class Auth extends StatelessWidget {
 
           //When the user is logged in.
           if (snapshot.hasData){
-            return Home();
+            return HomeScreen();
           }
           //When the user don't logged in.
           else {

@@ -38,7 +38,7 @@ class _RegistrationCompletedState extends State<RegistrationCompleted> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Sikeres Regisztráció!',
+                    'Regisztráltál!',
                     style: TextStyle(
                       color: const Color.fromRGBO(255, 255, 255, 1),
                       fontSize: 35,
@@ -70,7 +70,7 @@ class _RegistrationCompletedState extends State<RegistrationCompleted> {
       onTap: (){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Home()),
+          MaterialPageRoute(builder: (context) => HomeScreen()),
           );
       },
       child: Container(
