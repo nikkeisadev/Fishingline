@@ -49,7 +49,7 @@ The main page, and all of them will contain both navigation bar. 💻
 ## Welcome FishBase! 🎣
 A complete Database for fishes, a free API!
 At: https://fishbase.org.au
-![Alt text](https://i.ibb.co/74M052f/image.png)
+![Alt text](https://i.ibb.co/qjSRHxq/image.png)
 ## Flutter UI Blueprint 🔠
 Blueprint removed, now that's the new look of the Login screen! 
 *Made in 14 days of work.*
