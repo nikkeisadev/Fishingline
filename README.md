@@ -46,6 +46,10 @@ Auth and Login handling: ```Firebase```, google servers. 🔥
 All of the selectable options are here from the navigation bars.✨
 The main page, and all of them will contain both navigation bar. 💻
 ![alt text](https://i.ibb.co/TwdkZ3M/uialigment.png)
+## Welcome FishBase! 🎣
+A complete Database for fishes, a free API!
+At: https://fishbase.org.au
+![Alt text](https://i.ibb.co/74M052f/image.png)
 ## Flutter UI Blueprint 🔠
 Blueprint removed, now that's the new look of the Login screen! 
 *Made in 14 days of work.*
