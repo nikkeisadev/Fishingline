@@ -51,8 +51,5 @@ A complete Database for fishes, a free API!
 At: https://fishbase.org.au
 ![Alt text](https://i.ibb.co/qjSRHxq/image.png)
 ## Flutter UI Blueprint 🔠
-Blueprint removed, now that's the new look of the Login screen! 
-*Made in 14 days of work.*
-<p align="center">
-  <img src="https://i.ibb.co/3YYM3ZV/image-removebg-preview-1.png" title="Google Pixel 3 XL" alt="Google Pixel 3 XL"/>
-</p>
+A Fresh and Clean look of the current Home Screen!
+![Fishingline_Blueprint_02](https://github.com/nikkeisadev/Fishingline/assets/137056695/99c6b423-0e2e-4de3-8b13-805a36ebb7dd)
