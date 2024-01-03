@@ -1,92 +1,31 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fishingline/api_models/weather_model_api.dart';
-import 'package:fishingline/components/weatherforecast.dart';
-import 'package:fishingline/pages/sidebar/contacts.dart';
 import 'package:fishingline/pages/sidebar/informations.dart';
 import 'package:fishingline/pages/sidebar/settings.dart';
-import 'package:fishingline/services/weather_service.dart';
 import 'package:fishingline/services/webview/facebook.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:intl/intl.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class WeatherPage extends StatefulWidget {
-  const WeatherPage({super.key});
+class ContactsSidePage extends StatefulWidget {
+  const ContactsSidePage({super.key});
 
   @override
-  State<WeatherPage> createState() => _WeatherPageState();
+  State<ContactsSidePage> createState() => _ContactsSidePage();
 }
 
-class _WeatherPageState extends State<WeatherPage> {
+class _ContactsSidePage extends State<ContactsSidePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final _weatherService = WeatherService('96a66d529a57a3ab69b4cd7cfb5cd421');
-
+  
   final user = FirebaseAuth.instance.currentUser!;
   User? userForProfile = FirebaseAuth.instance.currentUser;
 
-  Weather? _weather;
-
-  void runFacebook() {
-    openFacebook(context);
-  }
-
-  _fetchWeather() async {
-
-    String cityName = await _weatherService.getCurrentCity();
-
-    try {
-      final weather = await _weatherService.getWeather(cityName);
-      setState(() {
-        _weather = weather;
-      });
-    }
-
-    catch (e) {
-      print(e);
-    }
-  }
-
-  String translatedWeatherStatus = '';
-  String getWeatherAnimation(String? mainCondition) {
-      DateTime currentTime = DateTime.now();
-      int hour = currentTime.hour;
-
-      if (mainCondition == null) return 'lib/animations/LoadingAnimation.json';
-
-      switch (mainCondition.toLowerCase()) {
-        case 'clouds':
-        case 'mist':
-        case 'smoke':
-        case 'haze':
-        case 'dust':
-          translatedWeatherStatus = "Felhős";
-          return 'lib/animations/Cloudy.json';
-        case 'fog':
-          translatedWeatherStatus = "Köd";
-          return 'lib/animations/Fog.json';
-        case 'rain':
-        case 'driyyle':
-        case 'shower rain':
-          translatedWeatherStatus = "Esős";
-          return 'lib/animations/Rainy.json';
-        case 'thunderstorm':
-          translatedWeatherStatus = "Vihar";
-          return 'lib/animations/ThunderStorm.json';
-        case 'clear':
-          translatedWeatherStatus = "Tiszta égbolt";
-          if (hour >= 19) {return 'lib/animations/Moon.json';}
-          else {return 'lib/animations/Sunny.json';}
-        default:
-          translatedWeatherStatus = "";
-          return 'lib/animations/LoadingAnimation.json';
-      }
-    }
-  
   @override
   void initState() {
     super.initState();
+  }
 
-    _fetchWeather();
+  void runFacebook() {
+    openFacebook(context);
   }
 
   @override
@@ -245,7 +184,7 @@ endDrawer: Drawer(
       body: Container(
               decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("lib/images/weather_background.png"),
+                image: AssetImage("lib/images/home_background.png"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -253,46 +192,28 @@ endDrawer: Drawer(
           child: Column( 
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Lottie.asset(getWeatherAnimation(_weather?.mainCondition), width: 230),
-              const SizedBox(height: 0),
-              Text(
-                translatedWeatherStatus,
-                style: TextStyle(
-                  color: const Color.fromRGBO(255, 255, 255, 1),
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
+              Positioned(
+                top: 75.0,
+                left: 0.0,
+                right: 0.0,
+                child: Container(
+                  width: double.infinity,
+                  height: 30,
+                  color: const Color.fromARGB(255, 0, 34, 68),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.contacts, color: Color.fromARGB(255, 255, 187, 0)),
+                      const SizedBox(width: 8),
+                      Text('Elérhetőségek', style: TextStyle(color: Color.fromARGB(255, 255, 187, 0), fontWeight: FontWeight.w600, fontSize: 17)),
+                    ],
+                  ),
                 ),
               ),
-              
-              Divider(
-                  thickness: 2,
-                  color: const Color.fromARGB(255, 255, 187, 0),
-                  indent: 110,
-                  endIndent: 110,
-              ),
-
-              const SizedBox(height: 3),
-
-              Text("Dátum, és idő:",
-              style: TextStyle(color: Colors.white, fontSize: 13),
-              ),
-
+              Lottie.asset('lib/animations/Contacts.json',width: 230),
+              SizedBox(height: 50),
               Text(
-                  '${DateFormat('HH:mm').format(DateTime.now())}  '
-                  '${DateFormat('yyyy.MM.dd').format(DateTime.now())}',
-                  style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500), textAlign: TextAlign.center,
-              ),
-
-              const SizedBox(height: 10),
-
-              Text("Jelenlegi tartózkodási helyed:",
-              style: TextStyle(color: Colors.white, fontSize: 13),
-              ),
-
-              const SizedBox(height: 20),
-              
-              Text(
-                  _weather?.cityName ?? "Adatok lekérése...",
+                  "Elérhetőségeink",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                   fontSize: 25,
@@ -306,35 +227,131 @@ endDrawer: Drawer(
                   color: Colors.white,
                 ),
               ),
-              
-              const SizedBox(height: 25),
-              Text("A Jelenlegi hőmérséklet:",
-              style: TextStyle(color: Colors.white, fontSize: 15),
+              SizedBox(height: 25),
+              Text(
+                'Kérdésed van? Itt elérsz minket!',
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
-
-              RichText(
-                text: TextSpan(
+              SizedBox(height: 5),
+              Divider(
+                  thickness: 2,
+                  color: const Color.fromARGB(255, 255, 187, 0),
+                  indent: 110,
+                  endIndent: 110,
+              ),
+              SizedBox(height: 10),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    TextSpan(
-                      text: '${_weather?.temperature.round()}°C',
-                      style: TextStyle(fontSize: 40)
-                    ),
-                    const WidgetSpan(
-                      child: Icon(
-                        Icons.dew_point, 
-                        size: 40,
-                        color: const Color.fromARGB(255, 255, 187, 0),
-                        ),
+                    Icon(Icons.email, color: Color.fromARGB(255, 255, 187, 0),),
+                    SizedBox(width: 10),
+                    Text(
+                      'info@fishingline.hu',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ],
                 ),
               ),
+              SizedBox(height: 10),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(Icons.phone, color: Color.fromARGB(255, 255, 187, 0),),
+                    SizedBox(width: 10),
+                    Text(
+                      '+36 20 000 0000',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(Icons.house, color: Color.fromARGB(255, 255, 187, 0),),
+                    SizedBox(width: 10),
+                    Text(
+                      'Debrecen, Bethlen u. 1-9, 4000',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Expanded(
+                    child: Divider(
+                      thickness: 2,
+                      color: const Color.fromARGB(255, 255, 187, 0),
+                      indent: 100,
+                      endIndent: 10,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      'Médiák',
+                      style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 255, 187, 0), fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                  Expanded(
+                    child: Divider(
+                      thickness: 2,
+                      color: const Color.fromARGB(255, 255, 187, 0),
+                      indent: 10,
+                      endIndent: 100,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(Icons.facebook, color: Color.fromARGB(255, 255, 187, 0)),
+                    SizedBox(width: 10),
+                    Text(
+                      'Fishingline',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 5),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      FontAwesomeIcons.instagram,
+                      color: Color.fromARGB(255, 255, 187, 0),
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      '@fishingline',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            SizedBox(height: 30),
             ],
           ),
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        height: 100,
+        height: 50,
         shape: const CircularNotchedRectangle(),
         color: const Color.fromARGB(255, 0, 34, 68),
         child: IconTheme(
@@ -342,41 +359,22 @@ endDrawer: Drawer(
             color: Color.fromARGB(255, 255, 187, 0)),
           child: Padding(
             padding: const EdgeInsets.all(12.0), 
-            child: Row(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Column(
-                  children: [
-                    Center(
-                      child: ElevatedButton.icon(
-                        onPressed: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => WeatherForecastPage()),
-                          );
-                        },
-                        icon: Icon(Icons.cloud, size: 20,),
-                        label: Text('Előrejelzés', style: TextStyle(color: Colors.white, fontSize: 20)),
-                        style: ElevatedButton.styleFrom(
-                          primary: Color.fromARGB(20, 255, 255, 255),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'Az adatok forrása: OpenWeather',
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 255, 187, 0),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ],
+                Text(
+                  '',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 255, 187, 0),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13,
+                  ),
                 ),
               ],
             )
           ),
         ),
-      ),   
+      ),
     );
   }
 }

@@ -44,42 +44,42 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC5joN2w8Rj2l5h3dB77FUYBfyiDBCjP28',
-    appId: '1:174925084469:web:9a712bc3d75ee55454fe7c',
-    messagingSenderId: '174925084469',
-    projectId: 'fishingline-91805',
-    authDomain: 'fishingline-91805.firebaseapp.com',
-    storageBucket: 'fishingline-91805.appspot.com',
-    measurementId: 'G-FM873S14BG',
+    apiKey: 'AIzaSyCtKI6UF9eTD6DtprelejzCzvklibtJolA',
+    appId: '1:228691592709:web:39f10f7da06f2e92cd7e6c',
+    messagingSenderId: '228691592709',
+    projectId: 'fishingline-97515',
+    authDomain: 'fishingline-97515.firebaseapp.com',
+    storageBucket: 'fishingline-97515.appspot.com',
+    measurementId: 'G-JMCB63Z62T',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAW5cF04NbnG3CQFS0LF97xlbKqFNuEUV0',
-    appId: '1:174925084469:android:d3c0beaae19ce38454fe7c',
-    messagingSenderId: '174925084469',
-    projectId: 'fishingline-91805',
-    storageBucket: 'fishingline-91805.appspot.com',
+    apiKey: 'AIzaSyAm5Go03I0PVyrKqmnIhSyL9NhHqxex-0g',
+    appId: '1:228691592709:android:629bfbd619176b5acd7e6c',
+    messagingSenderId: '228691592709',
+    projectId: 'fishingline-97515',
+    storageBucket: 'fishingline-97515.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBfB7ZkbDKv0DJ8infEl4XA4oTFFI0_EX8',
-    appId: '1:174925084469:ios:f6657037623ee06a54fe7c',
-    messagingSenderId: '174925084469',
-    projectId: 'fishingline-91805',
-    storageBucket: 'fishingline-91805.appspot.com',
-    androidClientId: '174925084469-gvq66lb82rackrvdi5ff6cir3e696eu5.apps.googleusercontent.com',
-    iosClientId: '174925084469-0boeao5b0qeg7esva6evblfve2pdk0u1.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBmEzWOGfQjgFdV3Z9BiYQcmwPsyMarB2k',
+    appId: '1:228691592709:ios:fa05d91a8773a757cd7e6c',
+    messagingSenderId: '228691592709',
+    projectId: 'fishingline-97515',
+    storageBucket: 'fishingline-97515.appspot.com',
+    androidClientId: '228691592709-pnt7ullf16t8nnm54qin57ju93k2egu6.apps.googleusercontent.com',
+    iosClientId: '228691592709-r1d16v4g73o8im1s8dbdfijctci494fg.apps.googleusercontent.com',
     iosBundleId: 'com.example.fishingline',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBfB7ZkbDKv0DJ8infEl4XA4oTFFI0_EX8',
-    appId: '1:174925084469:ios:caf16db86ff30bac54fe7c',
-    messagingSenderId: '174925084469',
-    projectId: 'fishingline-91805',
-    storageBucket: 'fishingline-91805.appspot.com',
-    androidClientId: '174925084469-gvq66lb82rackrvdi5ff6cir3e696eu5.apps.googleusercontent.com',
-    iosClientId: '174925084469-p4i71nqkhpq5tcgo7628ssub145i6rvd.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBmEzWOGfQjgFdV3Z9BiYQcmwPsyMarB2k',
+    appId: '1:228691592709:ios:b9de58ff86eac96ccd7e6c',
+    messagingSenderId: '228691592709',
+    projectId: 'fishingline-97515',
+    storageBucket: 'fishingline-97515.appspot.com',
+    androidClientId: '228691592709-pnt7ullf16t8nnm54qin57ju93k2egu6.apps.googleusercontent.com',
+    iosClientId: '228691592709-7jfrop2qipclnela04r0u92anktfnp20.apps.googleusercontent.com',
     iosBundleId: 'com.example.fishingline.RunnerTests',
   );
 }

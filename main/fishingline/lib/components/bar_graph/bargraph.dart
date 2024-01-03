@@ -38,34 +38,38 @@ class BarGraphActivity extends StatelessWidget {
           show: true,
           bottomTitles: SideTitles(
             showTitles: true,
-            getTextStyles: (value) => const TextStyle(fontSize: 12),
+            getTextStyles: (value) => const TextStyle(
+              fontSize: 12,
+              color: Colors.white, // Set the text color to white
+              fontWeight: FontWeight.bold, // Set the text style to bold
+            ),
             margin: 10,
             getTitles: (double value) {
               switch (value.toInt()) {
                 case 0:
-                  return 'Jan';
+                  return 'Jan\n' + monthlySummary[0].truncate().toString();
                 case 1:
-                  return 'Feb';
+                  return 'Feb\n' + monthlySummary[1].truncate().toString();
                 case 2:
-                  return 'Mar';
+                  return 'Mar\n' + monthlySummary[2].truncate().toString();
                 case 3:
-                  return 'Apr';
+                  return 'Apr\n' + monthlySummary[3].truncate().toString();
                 case 4:
-                  return 'May';
+                  return 'May\n' + monthlySummary[4].truncate().toString();
                 case 5:
-                  return 'Jun';
+                  return 'Jun\n' + monthlySummary[5].truncate().toString();
                 case 6:
-                  return 'Jul';
+                  return 'Jul\n' + monthlySummary[6].truncate().toString();
                 case 7:
-                  return 'Aug';
+                  return 'Aug\n' + monthlySummary[7].truncate().toString();
                 case 8:
-                  return 'Sep';
+                  return 'Sep\n' + monthlySummary[8].truncate().toString();
                 case 9:
-                  return 'Oct';
+                  return 'Oct\n' + monthlySummary[9].truncate().toString();
                 case 10:
-                  return 'Nov';
+                  return 'Nov\n' + monthlySummary[10].truncate().toString();
                 case 11:
-                  return 'Dec';
+                  return 'Dec\n' + monthlySummary[11].truncate().toString();
                 default:
                   return '';
               }
@@ -79,6 +83,7 @@ class BarGraphActivity extends StatelessWidget {
                 x: data.x,
                 barRods: [
                   BarChartRodData(
+                    colors: [Color.fromARGB(255, 255, 187, 0)],
                     y: data.y,
                     width: 25,
                     borderRadius: const BorderRadius.all(Radius.circular(10)),

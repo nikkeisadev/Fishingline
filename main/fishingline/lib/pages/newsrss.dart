@@ -9,15 +9,16 @@ import 'package:dart_rss/dart_rss.dart';
 import 'package:lottie/lottie.dart';
 
 void main() {
-  runApp(RSSWater());
+  runApp(RSSNews());
 }
 
-class RSSWater extends StatefulWidget {
+
+class RSSNews extends StatefulWidget {
   @override
-  _RSSWaterState createState() => _RSSWaterState();
+  _RSSNewsState createState() => _RSSNewsState();
 }
 
-class _RSSWaterState extends State<RSSWater> {
+class _RSSNewsState extends State<RSSNews> {
   int _currentIndex = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Widget> _screens = [
@@ -28,7 +29,7 @@ class _RSSWaterState extends State<RSSWater> {
 
   final user = FirebaseAuth.instance.currentUser!;
   User? userForProfile = FirebaseAuth.instance.currentUser;
-
+  
   void runFacebook() {
     openFacebook(context);
   }
@@ -217,7 +218,7 @@ endDrawer: Drawer(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  'Az adatok forrása: www.vizugy.hu',
+                  'Az adatok forrása: www.hirstart.hu',
                   style: TextStyle(
                     color: Color.fromARGB(255, 255, 187, 0),
                     fontWeight: FontWeight.bold,
@@ -253,7 +254,7 @@ class _RSSReaderWidgetState extends State<RSSReaderWidget> {
 
     // RSS feed
     final rssResponse =
-        await client.get(Uri.parse('https://www.vizugy.hu/rss/?type=1'));
+        await client.get(Uri.parse('https://www.hirstart.hu/site/publicrss.php?pos=balrovat&pid=378'));
     final rssBodyString = rssResponse.body;
 
     final channel = RssFeed.parse(rssBodyString);
@@ -279,8 +280,27 @@ class _RSSReaderWidgetState extends State<RSSReaderWidget> {
         borderRadius: BorderRadius.circular(10),
       ),
       child: ListTile(
-        title: Text(item.title!, style: TextStyle(color: Colors.white, fontSize: 20)),
-        subtitle: Text(item.pubDate!, style: TextStyle(color: Colors.white)),
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              Text(
+                item.title!,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          ),
+        ),
+        subtitle: Text(
+          item.pubDate!,
+          style: TextStyle(
+            color: Color.fromARGB(255, 255, 187, 0),
+          ),
+        ),
       ),
     );
   },

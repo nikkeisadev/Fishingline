@@ -1,76 +1,113 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:async';
 import 'package:fishingline/pages/sidebar/contacts.dart';
 import 'package:fishingline/pages/sidebar/informations.dart';
 import 'package:fishingline/pages/sidebar/settings.dart';
-import 'package:fishingline/services/webview/facebook.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:dart_rss/dart_rss.dart';
-import 'package:lottie/lottie.dart';
+import 'package:fishingline/services/webview/facebook.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() {
-  runApp(RSSWater());
-}
+class ProfileSettings extends StatefulWidget {
+  const ProfileSettings({super.key});
 
-class RSSWater extends StatefulWidget {
   @override
-  _RSSWaterState createState() => _RSSWaterState();
+  State<ProfileSettings> createState() => _ProfileSettings();
 }
 
-class _RSSWaterState extends State<RSSWater> {
-  int _currentIndex = 0;
+class _ProfileSettings extends State<ProfileSettings> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final List<Widget> _screens = [
-    RSSReaderWidget(),
-    Placeholder(), // Replace with your other screens
-    Placeholder(), // Replace with your other screens
-  ];
-
-  final user = FirebaseAuth.instance.currentUser!;
+  
+  Timer? _timer;
+  String imageUrl = " ";
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   User? userForProfile = FirebaseAuth.instance.currentUser;
+
+  Future<void> setPhotoUri(String photoUri) async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      await user.updateProfile(photoURL: photoUri);
+      setState(() {
+        userForProfile = FirebaseAuth.instance.currentUser;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(Duration(seconds: 0), (timer) {
+      setState(() {
+        userForProfile = FirebaseAuth.instance.currentUser;
+      });
+    });
+  }
 
   void runFacebook() {
     openFacebook(context);
   }
 
+  void pickUploadImage() async {
+    final image = await ImagePicker().pickImage(
+      source:
+        ImageSource.gallery,
+        maxWidth: 512,
+        maxHeight: 512,
+        imageQuality: 75,
+      );
+
+      Reference ref = FirebaseStorage.instance.ref().child(userForProfile!.uid + '.jpg');
+
+      await ref.putFile(File(image!.path));
+      ref.getDownloadURL().then((value) {
+        print('############################' + value);
+        FirebaseAuth.instance.currentUser!.updatePhotoURL(value);
+        setState(() {
+          userForProfile = FirebaseAuth.instance.currentUser;
+        });
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color.fromARGB(255, 0, 50, 87),
+      ),
       home: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-  backgroundColor: const Color.fromARGB(255, 0, 34, 68),
-  centerTitle: true,
-  iconTheme: const IconThemeData(
-    size: 40,
-    color: Color.fromARGB(255, 255, 187, 0), //change your color here
-  ),
-  titleSpacing: 10,
-  toolbarHeight: 75,
-  leading: IconButton(
-    icon: Icon(Icons.arrow_back),
-    onPressed: () {
-      Navigator.pop(context);
-    },
-  ),
-  title: Image.asset(
-    'lib/images/fishingline_logo.png',
-    width: 120,
-  ),
-  actions: [
-    Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: IconButton(
-        icon: const Icon(Icons.menu),
-        tooltip: 'Menü',
-        onPressed: () {
-          _scaffoldKey.currentState?.openEndDrawer();
-        },
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(25.0),
+                bottomRight: Radius.circular(25.0),
+              ),
+            ),
+      backgroundColor: const Color.fromARGB(255, 0, 34, 68),
+      centerTitle: true,
+      iconTheme: const IconThemeData(
+      size: 40,
+      color: Color.fromARGB(255, 255, 187, 0), //change your color here
       ),
+      titleSpacing: 10,
+      toolbarHeight: 75,
+      title: Image.asset(
+      'lib/images/fishingline_logo.png',
+      width: 120,
+      ),
+      actions: [
+      Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: IconButton(
+          icon: const Icon(Icons.menu),
+          tooltip: 'Menü',
+          onPressed: (){_scaffoldKey.currentState?.openEndDrawer();}, // Call the void function here
+        ),
+      ),
+      ],
     ),
-  ],
-),
-endDrawer: Drawer(
+    endDrawer: Drawer(
       child: Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -165,7 +202,7 @@ endDrawer: Drawer(
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => InformationsSidePage()),
+                MaterialPageRoute(builder: (context) => const InformationsSidePage()),
               );
             },
           ),
@@ -195,95 +232,37 @@ endDrawer: Drawer(
       ),
       ),
     ),
+        body: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('lib/images/login_background.png'),
-              fit: BoxFit.cover,
+          alignment: Alignment.center,
+          padding: const EdgeInsets.all(10),
+          decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("lib/images/home_background.png"),
+                  fit: BoxFit.cover,
+                )
+          ),
+          child: Column(
+              children:[
+                  GestureDetector(
+                    onTap: () {
+                      pickUploadImage();
+                    },
+                    child: Center(
+                      child: FirebaseAuth.instance.currentUser!.photoURL.toString() == "" ? Container(
+                        child: Image.asset('lib/images/default_profile.png', width: 80),
+                      ) : CircleAvatar(
+                            backgroundColor: const Color.fromARGB(255, 255, 187, 0),
+                            backgroundImage: NetworkImage(userForProfile!.photoURL.toString()),
+                            radius: 50.0,
+                          )
+                    ),
+                  ),
+              ]
             ),
           ),
-          child: _screens[_currentIndex],
-        ),
-        bottomNavigationBar: BottomAppBar(
-        height: 50,
-        shape: const CircularNotchedRectangle(),
-        color: const Color.fromARGB(255, 0, 34, 68),
-        child: IconTheme(
-          data: const IconThemeData(
-            color: Color.fromARGB(255, 255, 187, 0)),
-          child: Padding(
-            padding: const EdgeInsets.all(12.0), 
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Text(
-                  'Az adatok forrása: www.vizugy.hu',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 255, 187, 0),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 13,
-                  ),
-                ),
-              ],
-            )
-          ),
         ),
       ),
-      ),
     );
-  }
-}
-
-class RSSReaderWidget extends StatefulWidget {
-  @override
-  _RSSReaderWidgetState createState() => _RSSReaderWidgetState();
-}
-
-class _RSSReaderWidgetState extends State<RSSReaderWidget> {
-  RssFeed? _rssFeed;
-
-  @override
-  void initState() {
-    super.initState();
-    fetchFeeds();
-  }
-
-  void fetchFeeds() async {
-    final client = http.Client();
-
-    // RSS feed
-    final rssResponse =
-        await client.get(Uri.parse('https://www.vizugy.hu/rss/?type=1'));
-    final rssBodyString = rssResponse.body;
-
-    final channel = RssFeed.parse(rssBodyString);
-    setState(() {
-      _rssFeed = channel;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (_rssFeed == null) {
-      return Center(child: Lottie.asset('lib/animations/LoadingAnimation.json', width: 200),);
-    }
-
-    return ListView.builder(
-  itemCount: _rssFeed!.items.length,
-  itemBuilder: (BuildContext context, int index) {
-    final item = _rssFeed!.items[index];
-
-    return Container(
-      decoration: BoxDecoration(
-        color: Color.fromARGB(38, 0, 0, 0),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: ListTile(
-        title: Text(item.title!, style: TextStyle(color: Colors.white, fontSize: 20)),
-        subtitle: Text(item.pubDate!, style: TextStyle(color: Colors.white)),
-      ),
-    );
-  },
-);
   }
 }

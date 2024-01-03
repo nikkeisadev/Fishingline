@@ -1,49 +1,42 @@
 {
   "project_info": {
-    "project_number": "174925084469",
-    "project_id": "fishingline-91805",
-    "storage_bucket": "fishingline-91805.appspot.com"
+    "project_number": "228691592709",
+    "project_id": "fishingline-97515",
+    "storage_bucket": "fishingline-97515.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:174925084469:android:d3c0beaae19ce38454fe7c",
+        "mobilesdk_app_id": "1:228691592709:android:629bfbd619176b5acd7e6c",
         "android_client_info": {
-          "package_name": "com.example.fishingline"
+          "package_name": "com.nikkeisadev.fishingline"
         }
       },
       "oauth_client": [
         {
-          "client_id": "174925084469-7i5pnd3lumtl1rs9lhlucrroiscaq2tp.apps.googleusercontent.com",
+          "client_id": "228691592709-pnt7ullf16t8nnm54qin57ju93k2egu6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.fishingline",
-            "certificate_hash": "8fc564a7d87ecc05eb0b8805745881d88926399d"
+            "package_name": "com.nikkeisadev.fishingline",
+            "certificate_hash": "d6318796ececb4edfff2e942f6d77d9460b85836"
           }
         },
         {
-          "client_id": "174925084469-bot385vcn5t0er8ij2nofh0aijocp4as.apps.googleusercontent.com",
+          "client_id": "228691592709-8o24v7v31v9f5n74525inrve1uvujcv1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAW5cF04NbnG3CQFS0LF97xlbKqFNuEUV0"
+          "current_key": "AIzaSyAm5Go03I0PVyrKqmnIhSyL9NhHqxex-0g"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "174925084469-bot385vcn5t0er8ij2nofh0aijocp4as.apps.googleusercontent.com",
+              "client_id": "228691592709-8o24v7v31v9f5n74525inrve1uvujcv1.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "174925084469-0boeao5b0qeg7esva6evblfve2pdk0u1.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.fishingline"
-              }
             }
           ]
         }

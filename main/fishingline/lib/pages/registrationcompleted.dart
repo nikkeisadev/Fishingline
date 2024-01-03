@@ -1,7 +1,8 @@
-import 'package:fishingline/components/buttonentry.dart';
+import 'package:fishingline/components/textfield.dart';
 import 'package:fishingline/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegistrationCompleted extends StatefulWidget{
     //Registration
@@ -13,6 +14,15 @@ class RegistrationCompleted extends StatefulWidget{
 }
 
 class _RegistrationCompletedState extends State<RegistrationCompleted> {
+
+  final clientUserName = TextEditingController(text: '');
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  User? userForProfile = FirebaseAuth.instance.currentUser;
+
+  void getUsername() async {
+    print(userForProfile!.uid);
+    await userForProfile!.updateProfile(displayName: clientUserName.text);
+  }
 
   @override
   Widget build(BuildContext context){
@@ -55,6 +65,16 @@ class _RegistrationCompletedState extends State<RegistrationCompleted> {
                   endIndent: 80,
               ),
 
+              const SizedBox(height: 10),
+              
+              //Repeat password textfield.
+              UserTextField(
+                iconName: Icons.account_box,
+                controller: clientUserName,
+                hintText: 'Felhasználónév: ',
+                obscureText: false, //We have to hide the password.
+              ),
+
               const SizedBox(height: 20),
 
               Center(
@@ -68,6 +88,7 @@ class _RegistrationCompletedState extends State<RegistrationCompleted> {
       const SizedBox(height: 20),
       GestureDetector(
       onTap: (){
+        getUsername();
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => HomeScreen()),
@@ -84,7 +105,7 @@ class _RegistrationCompletedState extends State<RegistrationCompleted> {
            fit:BoxFit.cover
          ),
          
-          color: Color.fromARGB(255, 12, 194, 82), 
+          color: const Color.fromARGB(255, 255, 187, 0),
           borderRadius: BorderRadius.circular(16)),
         child: Center(
           child: Text(

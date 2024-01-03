@@ -27,10 +27,11 @@ class _LoginState extends State<Login> {
       } else if (passwordController.text == "") {
         loginErrorDialog("Nem adtál meg jelszót, ez szükséges a bejelentkezéshez!", "Nem adtál meg jelszót!");
       } else {
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text, 
           password: passwordController.text
         );
+        print(FirebaseAuth.instance.currentUser?.uid);
       }
     } on FirebaseAuthException catch (e) {
       //Wrong email from user.
