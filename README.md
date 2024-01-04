@@ -51,5 +51,15 @@ A complete Database for fishes, a free API!
 At: https://fishbase.org.au
 ![FishBase](https://github.com/nikkeisadev/Fishingline/assets/137056695/ca798db8-556a-4da8-90eb-f0b92cb6fc0e)
 ## Flutter UI Blueprint 🔠
-A Fresh and Clean look of the current Home Screen!
-![Fishingline_Blueprint_02](https://github.com/nikkeisadev/Fishingline/assets/137056695/99c6b423-0e2e-4de3-8b13-805a36ebb7dd)
+Screenshots from the application!
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/1ecd0cb3-5565-419e-95ba-579245f9ffd9)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/145d238f-01a0-4962-a7a1-bd0d183b05da)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/e0f5e20f-2f34-4ea5-b406-e78872953856)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/88eb37d2-972b-436f-bb37-ea9740c8770b)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/b26bf7e1-ab51-4fd9-a1a7-f2741b3b2a8e)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/3472df65-6b93-4dad-8206-7c1ff3dcfb36)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/0c2b3afc-fb56-4d7a-be29-8b9b1564dc82)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/da391e1f-e29b-4cbb-b5e2-b36e7ca59062)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/79acc4cc-4448-4299-9be0-4fb9a968a5cc)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/ff8d61a5-8b12-4971-b116-4857ade47afc)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/d11acea8-7f6f-400c-8909-b3c207cd8fe9)
