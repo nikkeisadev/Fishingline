@@ -37,9 +37,19 @@ class _RSSNewsState extends State<RSSNews> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color.fromARGB(255, 8,28,68),
+      ),
       home: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(25.0),
+              bottomRight: Radius.circular(25.0),
+            ),
+          ),
   backgroundColor: const Color.fromARGB(255, 0, 34, 68),
   centerTitle: true,
   iconTheme: const IconThemeData(
@@ -199,7 +209,7 @@ endDrawer: Drawer(
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('lib/images/login_background.png'),
+              image: AssetImage('lib/images/weather_background.png'),
               fit: BoxFit.cover,
             ),
           ),

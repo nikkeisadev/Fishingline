@@ -89,10 +89,7 @@ class _RegistrationCompletedState extends State<RegistrationCompleted> {
       GestureDetector(
       onTap: (){
         getUsername();
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
-          );
+        Navigator.pop(context);
       },
       child: Container(
         padding: const EdgeInsets.all(17),

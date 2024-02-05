@@ -36,9 +36,19 @@ class _RSSWaterState extends State<RSSWater> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color.fromARGB(255, 8,20,44),
+      ),
       home: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(25.0),
+              bottomRight: Radius.circular(25.0),
+            ),
+          ),
   backgroundColor: const Color.fromARGB(255, 0, 34, 68),
   centerTitle: true,
   iconTheme: const IconThemeData(
@@ -198,7 +208,7 @@ endDrawer: Drawer(
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('lib/images/login_background.png'),
+              image: AssetImage('lib/images/login_background_2.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -275,8 +285,8 @@ class _RSSReaderWidgetState extends State<RSSReaderWidget> {
 
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromARGB(38, 0, 0, 0),
-        borderRadius: BorderRadius.circular(10),
+        color: Color.fromARGB(85, 0, 0, 0),
+        borderRadius: BorderRadius.circular(0),
       ),
       child: ListTile(
         title: Text(item.title!, style: TextStyle(color: Colors.white, fontSize: 20)),

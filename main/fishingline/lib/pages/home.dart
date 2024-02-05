@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'package:fishingline/services/backendquery/querytest.dart';
+import 'package:liquid_progress_indicator_v2/liquid_progress_indicator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fishingline/components/bar_graph/bargraph.dart';
 import 'package:fishingline/components/callableweather.dart';
@@ -13,6 +14,7 @@ import 'package:fishingline/pages/weather.dart';
 import 'package:fishingline/services/webview/facebook.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 // ignore: must_be_immutable
 class HomeScreen extends StatefulWidget {
@@ -84,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.of(context).pop();
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 255, 160, 18),
+              backgroundColor: const Color.fromARGB(255, 255, 187, 18),
             ),
             child: const Text(
               "Vissza",
@@ -97,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
               signUserOut();
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 255, 160, 18),
+              backgroundColor: const Color.fromARGB(255, 255, 187, 18),
             ),
             child: const Text(
               "Kijelentkezés",
@@ -131,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.of(context).pop();
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 255, 160, 18),
+                  backgroundColor: const Color.fromARGB(255, 255, 187, 18),
                 ),
                 child: const Text(
                   "Vissza",
@@ -345,22 +347,36 @@ class _HomeScreenState extends State<HomeScreen> {
               borderRadius: BorderRadius.circular(18.0),
               color: const Color.fromARGB(255, 0, 34, 68),
               image: DecorationImage(
-                image: AssetImage('lib/images/button_background.png'),
+                image: NetworkImage(userForProfile!.photoURL.toString()),
                 fit: BoxFit.cover,
+                colorFilter: ColorFilter.mode(Color.fromARGB(207, 0, 34, 68), BlendMode.srcATop),
               ),
             ),
-            height: 80,
-            child: 
-              Row(
+            height: 90,
+            child: Row(
               children: [
-                const SizedBox(width: 20),
-                CircleAvatar(
-                  backgroundColor: const Color.fromARGB(255, 255, 187, 0),
-                  backgroundImage: NetworkImage(userForProfile!.photoURL.toString()),
-                  radius: 30.0,
+                const SizedBox(width: 10),
+                Stack(
+                  children: [
+                    Lottie.asset(
+                      'lib/animations/ProfileBackground.json',
+                      width: 90, // Adjust the width of the animation
+                      height: 90, // Adjust the height of the animation
+                    ),
+                    Positioned(
+                      top: 14, // Adjust the position of the profile picture
+                      left: 16, // Adjust the position of the profile picture
+                      child: CircleAvatar(
+                        backgroundColor: const Color.fromARGB(255, 255, 187, 0),
+                        backgroundImage: NetworkImage(userForProfile!.photoURL.toString()),
+                        radius: 30.0,
+                      ),
+                    ),
+                  ],
                 ),
+
                 Padding(
-                  padding: const EdgeInsets.all(14.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: GestureDetector(
                     onTap: (){
                       Navigator.push(
@@ -387,6 +403,14 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 17,
                           ),
                         ),
+                        Text(
+                          userForProfile!.email.toString(),
+                          style: TextStyle(
+                            color: const Color.fromARGB(255, 255, 187, 0),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -403,26 +427,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 borderRadius: BorderRadius.circular(15.0),
                 color: const Color.fromARGB(255, 0, 34, 68),
               ),
-              height: 330,
+              height: 280,
               child:
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                    "Kifogások aktivitása",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    background: Paint()
-                      ..color = const Color.fromARGB(255, 255, 187, 0)
-                      ..strokeWidth = 25
-                      ..strokeJoin = StrokeJoin.round
-                      ..strokeCap = StrokeCap.round
-                      ..style = PaintingStyle.stroke,
-                    color: Colors.white,
-                  ),
-                ),
                     SizedBox(
                     height: 200,
                     child: 
@@ -468,15 +477,117 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ),
           ),
+
+          const SizedBox(height: 10),
+
+          Row(
+            children: [
+              Center(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    color: const Color.fromARGB(255, 0, 34, 68),
+                    image: DecorationImage(
+                  image: AssetImage("lib/images/button_background.png"),
+                  fit: BoxFit.cover,
+                )
+                  ),
+                  width: 100,
+                  height: 100,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15.0),
+                    child: LiquidLinearProgressIndicator(
+                      value: 0.5,
+                      backgroundColor: Colors.transparent,
+                      valueColor: AlwaysStoppedAnimation<Color>(Color.fromARGB(255, 255, 187, 0)),
+                      direction: Axis.vertical,
+                      center: Align(
+                        alignment: Alignment.center,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "3",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontSize: 70,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+
+                )
+
+              ),
+
+              const SizedBox(width: 10),
+              
+              Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.0),
+                      color: const Color.fromARGB(255, 0, 34, 68),
+                      image: DecorationImage(
+                        image: AssetImage("lib/images/button_background.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    height: 100,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Havi fogásaid. 🐟',
+                                style: TextStyle(
+                                  fontSize: 26,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                'Megtekintheted, e havi fogásaid számát!',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                'Koppints ide a statisztikáidért!',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Color.fromARGB(255, 255, 187, 0),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: 9),
+                      ],
+                    ),
+                  ),
+                ),
+            ],
+          )
+
         ]
       ),
         ),
         extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton.large(
-          onPressed: () {
-            globalEmptyFunctionDialog(context, 'Sajnos még nem tudsz fogásokat tárolni az alkalmazásban.', 'Nem elérhető funkció!');
-          },
+          onPressed: () {},
           backgroundColor: const Color.fromARGB(255, 0, 34, 68),
           foregroundColor: const Color.fromARGB(255, 255, 187, 0),
         child: Icon(Icons.add, size: 60,)

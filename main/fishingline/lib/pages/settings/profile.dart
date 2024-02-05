@@ -72,6 +72,7 @@ class _ProfileSettings extends State<ProfileSettings> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: const Color.fromARGB(255, 0, 50, 87),
       ),
@@ -92,6 +93,12 @@ class _ProfileSettings extends State<ProfileSettings> {
       ),
       titleSpacing: 10,
       toolbarHeight: 75,
+      leading: IconButton(
+      icon: Icon(Icons.arrow_back),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    ),
       title: Image.asset(
       'lib/images/fishingline_logo.png',
       width: 120,
@@ -157,14 +164,6 @@ class _ProfileSettings extends State<ProfileSettings> {
                           color: Colors.white,
                           fontWeight: FontWeight.normal,
                           fontSize: 21,
-                        ),
-                      ),
-                      Text(
-                        userForProfile!.email.toString(),
-                        style: TextStyle(
-                          color: const Color.fromARGB(255, 255, 160, 18),
-                          fontWeight: FontWeight.normal,
-                          fontSize: 12,
                         ),
                       ),
                     ],
@@ -251,11 +250,16 @@ class _ProfileSettings extends State<ProfileSettings> {
                     child: Center(
                       child: FirebaseAuth.instance.currentUser!.photoURL.toString() == "" ? Container(
                         child: Image.asset('lib/images/default_profile.png', width: 80),
-                      ) : CircleAvatar(
-                            backgroundColor: const Color.fromARGB(255, 255, 187, 0),
-                            backgroundImage: NetworkImage(userForProfile!.photoURL.toString()),
-                            radius: 50.0,
-                          )
+                      ) : Column(
+                        children: [
+                          CircleAvatar(
+                                backgroundColor: const Color.fromARGB(255, 255, 187, 0),
+                                backgroundImage: NetworkImage(userForProfile!.photoURL.toString()),
+                                radius: 50.0,
+                              ),
+                              
+                        ],
+                      )
                     ),
                   ),
               ]

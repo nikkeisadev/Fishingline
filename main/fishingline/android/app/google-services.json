@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "228691592709-pnt7ullf16t8nnm54qin57ju93k2egu6.apps.googleusercontent.com",
+          "client_id": "228691592709-jcpq5vdk5marm95shf9qu7hengluv5jt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.nikkeisadev.fishingline",
-            "certificate_hash": "d6318796ececb4edfff2e942f6d77d9460b85836"
+            "certificate_hash": "53cc4a962e4f197a82593f6875bdc1629de95ec8"
           }
         },
         {
@@ -37,6 +37,13 @@
             {
               "client_id": "228691592709-8o24v7v31v9f5n74525inrve1uvujcv1.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "228691592709-7jfrop2qipclnela04r0u92anktfnp20.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fishingline.RunnerTests"
+              }
             }
           ]
         }
