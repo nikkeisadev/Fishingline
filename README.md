@@ -9,7 +9,7 @@ Bored cuz the minimal informaion about fishing statistics, and wanna save your c
 Language: ```Dart```⚙️
 UI:```Flutter``` 🔠
 Editor: Mostly using ```VS Code``` for editing. 
-Database: ```MongoDB``` using as SQL Database 🌐 
+Database: ```Firebase``` using as Storage 📦 
 Auth and Login handling: ```Firebase```, google servers. 🔥
 > iOS support, and Android yet. It's a Mobile App Development project. 📱
 ## Time Table, Goals... etc. \^o^/ 🎇
