@@ -1,4 +1,6 @@
-![alt text](https://i.ibb.co/yhFvck7/output-onlinepngtools.png)
+![image](https://github.com/nikkeisadev/Fishingline/assets/137056695/b9505f5d-90ec-4197-99b8-ced3a736b28f)
+
+# THIS REPOSITORY USED TO BE A STARTUP PROJECT, BUT NOW ABANDONED.
 # Fishingline 🐠
 Welcome to the repository of **Fishingline**, an electronical logbook, and database for fishers!🎣
 ## What is that all about? ✨
